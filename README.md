@@ -312,8 +312,8 @@ goal: "落地贴合业务的 AI 项目，持续沉淀工程实战经验。"
 
 <br>
 
-![Snake](github-contribution-grid-snake.svg#gh-light-mode-only)
-![Snake-dark](github-contribution-grid-snake-dark.svg#gh-dark-mode-only)
+![Snake](https://ghproxy.com/https://raw.githubusercontent.com/An3035/An3035/output/github-contribution-grid-snake.svg#gh-light-mode-only)
+![Snake-dark](https://ghproxy.com/https://raw.githubusercontent.com/An3035/An3035/output/github-contribution-grid-snake-dark.svg#gh-dark-mode-only)
 
 <br>
 
