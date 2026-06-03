@@ -1,21 +1,28 @@
 name: Generate Snake
 on:
-  schedule: # 每12小时自动更新动图
-    - cron: "0 */12 * * *"
-  workflow_dispatch: # 支持手动触发
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
 jobs:
-  generate:
+  build:
     runs-on: ubuntu-latest
+    # 关键：授予bot提交代码权限，自动使用内置GITHUB_TOKEN，解决缺Token报错
+    permissions:
+      contents: write
+    env:
+      # 消除Node.js20弃用警告
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
-      - name: Generate snake svg
-        uses: Platane/snk/svg-only@v3
+      - uses: actions/checkout@v4
+      - uses: Platane/snk@v3
         with:
-          github_user_name: ${{ github.repository_owner }}
+          github_user_name: An3035
           outputs: |
-            dist/snake.svg
-            dist/snake-dark.svg?palette=github-dark
-      - name: Push SVG到output分支
-        uses: crazy-max/ghaction-github-pages@v3
-        with:
-          target_branch: output
-          build_dir: dist
+            github-contribution-grid-snake.svg
+            github-contribution-grid-snake-dark.svg?palette=github-dark
+      - name: Commit files
+        run: >
+          git config user.name "github-actions[bot]" &&
+          git config user.email "github-actions[bot]@users.noreply.github.com" &&
+          git add . &&
+          (git diff --cached --quiet || git commit -m "chore: update snake animation" && git push)
