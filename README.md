@@ -63,6 +63,12 @@ Hexo 个人技术博客
 
 ---
 
+## 🐍 My Contribution Snake（动态贪吃蛇）
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/An3035/An3035/output/snake-dark.svg">
+<source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/An3035/An3035/output/snake.svg">
+<img alt="贡献贪吃蛇动图">
+</picture>
 ## 📊 GitHub
 
 ![An's GitHub stats](https://github-readme-stats.vercel.app/api?username=An3035&show_icons=true&count_private=true&hide_border=true&bg_color=00000000&text_color=4b5563&icon_color=2563eb&title_color=2563eb)
