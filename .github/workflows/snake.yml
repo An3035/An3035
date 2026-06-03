@@ -1,5 +1,4 @@
 name: Generate Snake
-
 on:
   schedule:
     - cron: '0 0 * * *'
@@ -10,21 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: Platane/snk@v3
-        with:
+         with:
           github_user_name: An3035
           outputs: |
             github-contribution-grid-snake.svg
             github-contribution-grid-snake-dark.svg?palette=github-dark
-
-      - run: |
-           if [ -z "$(git status --porcelain)" ]; then
-            echo "No changes to commit"
-            exit 0
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add .
-          git commit -m "chore: update snake animation [skip ci]"
-          git push
+      - name: Commit files
+        run: >
+          git config user.name "github-actions[bot]" &&
+          git config user.email "github-actions[bot]@users.noreply.github.com" &&
+          git add . &&
+          (git diff --cached --quiet || git commit -m "chore: update snake animation" && git push)
